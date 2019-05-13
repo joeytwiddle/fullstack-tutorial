@@ -4,6 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "//": "Before publishing the schema you must go to engine.apollographql.com, create a new service, and then paste the ENGINE_API_KEY into .env file",
+    "publish-schema": "npx apollo service:push --endpoint=http://localhost:4000",
+    "check-schema": "npx apollo service:check --endpoint=http://localhost:4000",
     "test": "jest",
     "start": "nodemon src/index.js",
     "start:ci": "node src/index.js"
@@ -22,6 +25,7 @@
     "sqlite3": "^4.0.3"
   },
   "devDependencies": {
+    "apollo": "^2.11.0",
     "apollo-link": "^1.2.3",
     "apollo-link-http": "^1.5.5",
     "jest": "^23.6.0",
