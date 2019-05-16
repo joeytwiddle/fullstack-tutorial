@@ -5,6 +5,7 @@ import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
 import Pages from './pages';
+import gql from 'graphql-tag';
 
 const cache = new InMemoryCache();
 
@@ -18,6 +19,7 @@ const client = new ApolloClient({
 })
 
 //client.query({ query: gql` query GetLaunch { launch(id: 56) { id mission { name } } } ` }).then(result => console.log('result:', result));
+// result: { data: { launch: { id: '56', mission: { name: 'Paz / Starlink Demo', __typename: 'Mission' }, __typename: 'Launch' } }, loading: false, networkStatus: 7, stale: false }
 
 ReactDOM.render(
     <ApolloProvider client={client}>
