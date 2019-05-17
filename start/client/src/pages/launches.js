@@ -1,8 +1,22 @@
+import gql from 'graphql-tag';
 import React, { Fragment } from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { Button, Header, LaunchTile, Loading } from '../components';
 
-import { LaunchTile, Header, Button, Loading } from '../components';
+export const LAUNCH_TILE_DATA = gql`
+  fragment LaunchTile on Launch {
+    id
+    isBooked
+    rocket {
+      id
+      name
+    }
+    mission {
+      name
+      missionPatch
+    }
+  }
+`;
 
 const GET_LAUNCHES = gql`
   query launchList($after: String) {
@@ -10,19 +24,11 @@ const GET_LAUNCHES = gql`
       cursor
       hasMore
       launches {
-        id
-        isBooked
-        rocket {
-          id
-          name
-        }
-        mission {
-          name
-          missionPatch
-        }
+        ...LaunchTile
       }
     }
   }
+  ${LAUNCH_TILE_DATA}
 `;
 
 export default function Launches() {
