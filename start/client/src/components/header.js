@@ -18,7 +18,7 @@ function pickAvatarByEmail(email) {
 }
 
 export default function Header({ image, children = 'Space Explorer' }) {
-  const email = atob(localStorage.getItem('token'));
+  const email = atob(localStorage.getItem('token') || btoa('[not logged in]'));
   const avatar = image || pickAvatarByEmail(email);
   return (
     <Container>
