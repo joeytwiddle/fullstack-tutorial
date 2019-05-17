@@ -15,7 +15,7 @@ export default function Pages() {
           <Launches path="/" />
           <Launch path="launch/:launchId" />
           {/* <Cart path="cart" /> */}
-          {/* <Profile path="profile" /> */}
+          <Profile path="profile" />
         </Router>
       </PageContainer>
       {/* <Footer /> */}
