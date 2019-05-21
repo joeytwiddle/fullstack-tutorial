@@ -109,6 +109,7 @@ const StyledForm = styled('form')({
 
 const StyledInput = styled('input')({
   width: '100%',
+  boxSizing: 'border-box', // otherwise padding will make it grow larger than 100%!
   marginBottom: unit * 2,
   padding: `${unit * 1.25}px ${unit * 2.5}px`,
   border: `1px solid ${colors.grey}`,
