@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { GET_CART_ITEMS } from './pages/cart';
 
 export const typeDefs = gql`
   # We can add some local (client-side) fields to the server schema
@@ -16,4 +17,12 @@ export const typeDefs = gql`
   }
 `;
 
-export const resolvers = {};
+export const resolvers = {
+  Launch: {
+    isInCart: (launch, _, { cache }) => {
+      // Add a virtual field to the client-side data
+      const { cartItems } = cache.readQuery({ query: GET_CART_ITEMS });
+      return cartItems.includes(launch.id);
+    },
+  },
+};
