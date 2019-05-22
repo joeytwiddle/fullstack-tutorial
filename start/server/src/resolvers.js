@@ -1,6 +1,23 @@
 // We recommend keeping your resolvers thin as a best practice.
 // This allows you to safely refactor without worrying about breaking your API.
 
+/*
+Signature of a resolver:
+
+fieldName: (parent, args, context, info) => data;
+
+where:
+
+- parent: An object that contains the result returned from the resolver on the parent type (e.g. when adding a virtual field to an existing type)
+
+- args: An object that contains the arguments passed to the field
+
+- context: An object shared by all resolvers in a GraphQL operation. We use the context to contain per-request state such as authentication information and access our data sources.  (Local resolvers always have the 'cache' added to the context automatically.)
+
+- info: Information about the execution state of the operation which should only be used in advanced cases
+
+*/
+
 const { paginateResults } = require('./utils');
 
 module.exports = {
