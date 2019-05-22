@@ -27,7 +27,7 @@ export default function Cart() {
                   {data.cartItems.map(launchId => (
                     <CartItem key={launchId} launchId={launchId} />
                   ))}
-                  <BookTrips cartItems={data.cartItems} />
+                  {/* <BookTrips cartItems={data.cartItems} /> */}
                 </Fragment>
               )}
           </Fragment>
